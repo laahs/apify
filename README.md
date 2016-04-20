@@ -1,5 +1,5 @@
 # apify
-The aim of this package is to define boilerplate to ease api definition.
+The aim of this package is to define boilerplate to ease api definition. Given a model, a set of methods allowed and a set of restrictions the framework should generate routes/handlers, validate data and handle requests. It should be able to handle models related to other models.
 
 # API flow definition
 General flow through an api is the following, each step is pass or fail and return:
