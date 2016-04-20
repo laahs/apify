@@ -1,5 +1,14 @@
 # apify
 The aim of this package is to define boilerplate to ease api definition. Given a model, a set of methods allowed and a set of restrictions the framework should generate routes/handlers, validate data and handle requests. It should be able to handle models related to other models.
+It should be able to implement:
+Rate limiters enforce upper thresholds on incoming request throughput.
+Serialization is the conversion of language specific data structures to a byte stream for presentation to another system. That other system is commonly a browser (json/xml/html) or a database, among others.
+Logging is the time-ordered, preferably structured, output from an application and its constituent components.
+Metrics are a record of the instrumented parts of your application and includes the aggregated measurements of latency, request counts, health and others.
+Circuit breakers prevent thundering herds thereby improving resiliency against intermittent errors.
+Request tracing across multiple services is an important tool for diagnosing issues and recreating the state of the system as a whole.
+Probably out of scope: Service discovery allows different services to find each other given known, stable names and the realities of the cloud, where individual systems come and go dynamically and when least expected.
+
 
 # API flow definition
 General flow through an api is the following, each step is pass or fail and return:
@@ -9,6 +18,7 @@ General flow through an api is the following, each step is pass or fail and retu
 
 ACTORS:
 1) Initiator goes through a set of middleware to initiate basic info about the query (store query timestamp, parameters, set timeouts, language/country etc in the context for further analysis, metrics, instrumentation, log, debug, rate limiting -> use context)
+ --> store in context to passe along with the request to next actor, write method for some objects as log.
 
 2) Checker evaluates header and query parameters, submits data to the "barrier" (a set of middlewares checking authorization, authentity etc)
  --> return ERROR "not authorized" if does not pass authorizations middleware (Basic auth, api access auth (jwt), content access auth (jwt)), ERROR "bad request" if expected headers have not been sent or wrong content-type, ERROR "timeout gateway" if the process took too long
