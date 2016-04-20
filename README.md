@@ -8,7 +8,7 @@ General flow through an api is the following, each step is pass or fail and retu
  --> return ERROR "no content" if path not allowed, ERROR "not allowed" if method not allowed on content/path
 
 ACTORS:
-1) Initiator goes through a set of middleware to initiate basic info about the query (store query timestamp, parameters, set timeouts, language/country etc in the context for further analysis, log, debug -> use context)
+1) Initiator goes through a set of middleware to initiate basic info about the query (store query timestamp, parameters, set timeouts, language/country etc in the context for further analysis, metrics, instrumentation, log, debug -> use context)
 
 2) Checker evaluates header and query parameters, submits data to the "barrier" (a set of middlewares checking authorization, authentity etc)
  --> return ERROR "not authorized" if does not pass authorizations middleware (Basic auth, api access auth (jwt), content access auth (jwt)), ERROR "bad request" if expected headers have not been sent or wrong content-type, ERROR "timeout gateway" if the process took too long
