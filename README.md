@@ -1,5 +1,6 @@
 # apify
 The aim of this package is to define boilerplate to ease api definition. Given a model, a set of methods allowed and a set of restrictions the framework should generate routes/handlers, validate data and handle requests. It should be able to handle models related to other models.
+
 It should be able to implement:
 Rate limiters enforce upper thresholds on incoming request throughput.
 Serialization is the conversion of language specific data structures to a byte stream for presentation to another system. That other system is commonly a browser (json/xml/html) or a database, among others.
