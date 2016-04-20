@@ -15,7 +15,7 @@ Probably out of scope: Service discovery allows different services to find each 
 General flow through an api is the following, each step is pass or fail and return:
 
 0) Router directs the data to the appropriate Handler
- --> return ERROR "no content" if path not allowed, ERROR "not allowed" if method not allowed on content/path
+ --> return ERROR "no content" if path not allowed, ERROR "not allowed" if method not allowed on content/path.
 
 ACTORS:
 1) Initiator goes through a set of middleware to initiate basic info about the query (store query timestamp, parameters, set timeouts, language/country etc in the context for further analysis, metrics, instrumentation, log, debug, rate limiting -> use context)
